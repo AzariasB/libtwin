@@ -10,42 +10,12 @@
 
 namespace twin {
 
-    /**
-     * @brief The easing class holds all the bundled easings.
-     *
-     * You should pass the easing function to the @p tweeny::tween::via method, to set the easing function that will
-     * be used to interpolate values in a tween currentPoint.
-     *
-     * **Example**:
-     *
-     * @code
-     * auto tween = tweeny::from(0).to(100).via(tweeny::easing::linear);
-     * @endcode
-     */
-
-enum easing{
-    linear,
-    sineIn, sineOut, sineInOut,
-    quadIn, quadOut, quadInOut,
-    cubicIn, cubicOut, cubicInOut,
-    quartIn, quartOut, quartInOut,
-    quintIn, quintOut, quintInOut,
-    expoIn, expoOut, expoInOut,
-    circIn, circOut, circInOut,
-    backIn, backOut, backInOut,
-    elastIn, elastOut, elastInOut,
-    bounceIn, bounceOut, bounceInOut
-};
-
-
 /**
  *This 'private' namespace
  * contains all the functions used
  * to perform the tweening, inspired from :
  */
 /*
- This file is part of the Tweeny library.
-
  Copyright (c) 2016-2017 Leonardo G. Lucena de Freitas
  Copyright (c) 2016 Guilherme R. Costa
 
@@ -453,6 +423,58 @@ namespace{
     }
 
 }
+
+/*
+MIT License
+
+Copyright (c) 2018 Azarias Boutin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+    /**
+     * @brief The easing class holds all the bundled easings.
+     *
+     * You should pass the easing function to the @p tweeny::tween::via method, to set the easing function that will
+     * be used to interpolate values in a tween currentPoint.
+     *
+     * **Example**:
+     *
+     * @code
+     * auto tween = tweeny::from(0).to(100).via(tweeny::easing::linear);
+     * @endcode
+     */
+
+enum easing{
+    linear,
+    sineIn, sineOut, sineInOut,
+    quadIn, quadOut, quadInOut,
+    cubicIn, cubicOut, cubicInOut,
+    quartIn, quartOut, quartInOut,
+    quintIn, quintOut, quintInOut,
+    expoIn, expoOut, expoInOut,
+    circIn, circOut, circInOut,
+    backIn, backOut, backInOut,
+    elastIn, elastOut, elastInOut,
+    bounceIn, bounceOut, bounceInOut
+};
 
 #include <functional>
 
