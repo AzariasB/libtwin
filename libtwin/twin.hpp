@@ -530,6 +530,12 @@ enum easing{
         {
         }
 
+        Twin():
+            finishCallback(noop)
+        {
+
+        }
+
         /**
          * @brief step steps of the given progress
          * @param progress the progress made since the last step
