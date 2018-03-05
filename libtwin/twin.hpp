@@ -531,7 +531,8 @@ enum easing{
         }
 
         Twin():
-            finishCallback(noop)
+            finishCallback(noop),
+            easingF(getEasing(linear))
         {
 
         }
@@ -564,10 +565,10 @@ enum easing{
         }
 
         /**
-         * @brief progresss current progress of the tweening, 0 means starting, 1 means finished
+         * @brief progress current progress of the tweening, 0 means starting, 1 means finished
          * @return the progress of the tweening
          */
-        float progresss() const
+        float progress() const
         {
             return totalProgress;
         }
