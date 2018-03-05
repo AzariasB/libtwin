@@ -1,3 +1,5 @@
 *.pro
 build/
+*.pro.user
+!test/test.pro
 
