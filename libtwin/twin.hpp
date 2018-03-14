@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <type_traits>
+#include <functional>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -476,7 +477,6 @@ enum easing{
     bounceIn, bounceOut, bounceInOut
 };
 
-#include <functional>
 
 /**
      * @brief The Twin class the main class of the library,
@@ -503,7 +503,7 @@ enum easing{
          * @param finalCallback the function to call when the tweening
          * is over
          */
-        Twin(T from, T to, U time, easing ease, F finalCallback):
+        Twin(const T &from, const T& to, const U &time, easing ease, F finalCallback):
             from(from),
             to(to),
             totalTime(time),
@@ -547,6 +547,7 @@ enum easing{
             totalProgress = advance/static_cast<float>(totalTime);
             if(advance >= totalTime){
                 advance = totalTime;
+                totalProgress = advance/static_cast<float>(totalTime);
                 finishCallback();
             }
         }
@@ -565,7 +566,7 @@ enum easing{
         }
 
         /**
-         * @brief progress current progress of the tweening, 0 means starting, 1 means finished
+         * @brief progresss current progress of the tweening, 0 means starting, 1 means finished
          * @return the progress of the tweening
          */
         float progress() const
@@ -614,6 +615,7 @@ enum easing{
             case bounceOut:return bounceOutImpl<T>;
             case bounceInOut:return bounceInOutImpl<T>;
             }
+            return linearImpl<T>;
         }
 
         /**
@@ -655,7 +657,7 @@ enum easing{
     template<typename T,
              typename U,
              typename F>
-    Twin<T,U,F> makeTwin(T from, T to, U time, easing ez, F func)
+    Twin<T,U,F> makeTwin(const T &from, const T &to, const U &time, easing ez, F func)
     {
         return Twin<T,U,F>(from, to, time, ez, func);
     }
@@ -670,7 +672,7 @@ enum easing{
      * @param ez the easing function to use
      * @return a twing object
      */
-    Twin<T,U> makeTwin(T from, T to, U time, easing ez)
+    Twin<T,U> makeTwin(const T &from, const T &to, const U &time, easing ez)
     {
         return Twin<T,U>(from,to, time, ez);
     }
